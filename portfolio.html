@@ -41,15 +41,19 @@ nav{
 }
 /* ── HERO ── */
 #hero{
-  min-height:52vh;display:flex;align-items:center;justify-content:center;
+  min-height:76vh;display:flex;align-items:center;justify-content:center;
   position:relative;overflow:hidden;padding-top:80px;text-align:center;
 }
-.hero-bg{
+.hero-slide{
   position:absolute;inset:0;z-index:0;
-  background:url('images/portfolio-08.jpg') center/cover no-repeat;
-  opacity:.22;
+  background-size:cover;background-position:center;
+  opacity:0;transition:opacity 1.5s ease-in-out;
 }
-.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(8,15,30,.7),rgba(8,15,30,.85))}
+.hero-slide.active{opacity:1}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom,rgba(8,15,30,.48) 0%,rgba(8,15,30,.3) 40%,rgba(8,15,30,.7) 100%);
+}
 .hero-content{position:relative;z-index:2;max-width:720px;padding:0 24px}
 .page-tag{
   display:inline-flex;align-items:center;gap:8px;
@@ -58,7 +62,7 @@ nav{
   font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
   margin-bottom:20px;
 }
-.hero-title{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px}
+.hero-title{font-size:clamp(2.4rem,6vw,4rem);font-weight:900;letter-spacing:-2px;line-height:1.05;margin-bottom:20px}
 .hero-title span{color:var(--orange)}
 .hero-sub{color:var(--gray);font-size:1rem;line-height:1.7;margin-bottom:28px}
 .hero-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -321,7 +325,11 @@ footer a{color:var(--orange);font-weight:600}
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-slide active" style="background-image:url('images/portfolio-08.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/portfolio-01.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/portfolio-18.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/portfolio-05.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('images/portfolio-07.jpg')"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="page-tag">⭐ 5.0 · 169 Reviews on Google</div>
@@ -637,6 +645,17 @@ footer a{color:var(--orange);font-weight:600}
 
 
 <script>
+// Hero slideshow
+(function(){
+  const slides = document.querySelectorAll('#hero .hero-slide');
+  let idx = 0;
+  setInterval(() => {
+    slides[idx].classList.remove('active');
+    idx = (idx + 1) % slides.length;
+    slides[idx].classList.add('active');
+  }, 4500);
+})();
+
 // Reveal on scroll
 const ro = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
