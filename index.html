@@ -315,52 +315,48 @@ section{padding:90px 24px}
   .commercial-gallery{grid-template-rows:160px 160px 160px}
 }
 
-/* ── PORTFOLIO ── */
-#portfolio{background:var(--dark2)}
-.portfolio-filter{
-  display:flex;gap:10px;flex-wrap:wrap;margin:40px 0 32px;
+/* ── PORTFOLIO INFINITE SCROLL ── */
+#portfolio{background:var(--dark2);padding:80px 0;overflow:hidden}
+.gallery-head{text-align:center;padding:0 24px;margin-bottom:52px}
+.gallery-track-wrap{
+  position:relative;overflow:hidden;
+  margin-bottom:16px;
 }
-.filter-btn{
-  padding:8px 20px;border-radius:999px;font-size:.85rem;font-weight:600;
-  cursor:pointer;border:1px solid rgba(255,255,255,.12);
-  background:transparent;color:var(--gray);transition:all .2s;
+.gallery-track-wrap:last-of-type{margin-bottom:0}
+.gallery-track-wrap::before,.gallery-track-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:140px;z-index:2;pointer-events:none;
 }
-.filter-btn.active,.filter-btn:hover{
-  background:var(--orange);border-color:var(--orange);color:#fff;
+.gallery-track-wrap::before{left:0;background:linear-gradient(to right,var(--dark2) 0%,transparent 100%)}
+.gallery-track-wrap::after{right:0;background:linear-gradient(to left,var(--dark2) 0%,transparent 100%)}
+.gallery-track{display:flex;gap:16px;width:max-content;padding:8px 0}
+.gallery-track.ltr{animation:scrollLTR 40s linear infinite}
+.gallery-track.rtl{animation:scrollRTL 45s linear infinite}
+.gallery-track-wrap:hover .gallery-track{animation-play-state:paused}
+@keyframes scrollLTR{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scrollRTL{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.gallery-card{
+  position:relative;width:300px;height:220px;
+  border-radius:16px;overflow:hidden;flex-shrink:0;
+  border:1px solid rgba(255,255,255,.06);
 }
-.portfolio-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:16px;
-}
-.portfolio-item{
-  position:relative;border-radius:12px;overflow:hidden;
-  aspect-ratio:4/3;cursor:pointer;
-}
-.portfolio-item img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .5s ease;
-}
-.portfolio-item:hover img{transform:scale(1.07)}
-.portfolio-overlay{
+.gallery-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;display:block}
+.gallery-card:hover img{transform:scale(1.08)}
+.gallery-card-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 60%);
-  opacity:0;transition:opacity .3s;
-  display:flex;align-items:flex-end;padding:16px;
+  background:linear-gradient(to top,rgba(0,0,0,.78) 0%,transparent 55%);
+  opacity:0;transition:opacity .35s;
+  display:flex;align-items:flex-end;padding:14px 16px;
 }
-.portfolio-item:hover .portfolio-overlay{opacity:1}
-.portfolio-overlay span{
-  font-size:.85rem;font-weight:600;color:#fff;
-  display:flex;align-items:center;gap:6px;
+.gallery-card:hover .gallery-card-overlay{opacity:1}
+.gallery-card-label{
+  color:#fff;font-size:.78rem;font-weight:700;
+  letter-spacing:.5px;text-transform:uppercase;
 }
-.portfolio-tag{
-  position:absolute;top:12px;left:12px;
-  background:rgba(0,0,0,.6);backdrop-filter:blur(6px);
-  color:#fff;padding:4px 10px;border-radius:999px;
-  font-size:.72rem;font-weight:600;
+.gallery-cta{text-align:center;margin-top:44px;padding:0 24px}
+@media(max-width:768px){
+  .gallery-card{width:240px;height:170px}
+  .gallery-track-wrap::before,.gallery-track-wrap::after{width:60px}
 }
-.portfolio-tag.commercial{background:rgba(59,130,246,.8)}
-.portfolio-tag.gate{background:rgba(16,185,129,.8)}
 
 /* Lightbox */
 #lightbox{
@@ -965,80 +961,76 @@ footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.07);paddin
 
 <!-- PORTFOLIO -->
 <section id="portfolio">
-  <div class="container">
-    <div class="text-center reveal">
-      <span class="section-tag" data-en="Our Work" data-es="Nuestros Trabajos">Our Work</span>
-      <h2 class="section-title" data-en="Real Jobs, Real Results" data-es="Trabajos Reales, Resultados Reales">Real Jobs, Real Results</h2>
-      <p class="section-sub" data-en="Every photo is a real job completed by our team. Browse residential doors, commercial installs, and gate opener projects." data-es="Cada foto es un trabajo real completado por nuestro equipo. Ve puertas residenciales, instalaciones comerciales y proyectos de portones.">Every photo is a real job completed by our team. Browse residential doors, commercial installs, and gate opener projects.</p>
+  <div class="gallery-head reveal">
+    <span class="section-tag" data-en="Our Work" data-es="Nuestros Trabajos">Our Work</span>
+    <h2 class="section-title" data-en="Real Jobs, Real Results" data-es="Trabajos Reales, Resultados Reales">Real Jobs, Real Results</h2>
+    <p class="section-sub" style="max-width:520px;margin:0 auto" data-en="Every photo is a real job completed by our team in San Antonio TX." data-es="Cada foto es un trabajo real completado por nuestro equipo en San Antonio TX.">Every photo is a real job completed by our team in San Antonio TX.</p>
+  </div>
+
+  <!-- Track 1 — left to right -->
+  <div class="gallery-track-wrap">
+    <div class="gallery-track ltr">
+      <div class="gallery-card"><img src="images/portfolio-01.jpg" alt="Residential door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-02.jpg" alt="White garage door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Installation</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-03.jpg" alt="Beige door with windows" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-05.jpg" alt="White residential door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-06.jpg" alt="Technician installing" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Installation</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-08.jpg" alt="Stone house door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-18.jpg" alt="Brick home door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-22.jpg" alt="Garage repair" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Repair</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-23.jpg" alt="New door install" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Installation</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-24.jpg" alt="Custom door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/port-1-1.jpg" alt="Featured job 1" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/port-2-2.jpg" alt="Featured job 2" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Spring Repair</span></div></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="gallery-card"><img src="images/portfolio-01.jpg" alt="Residential door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-02.jpg" alt="White garage door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Installation</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-03.jpg" alt="Beige door with windows" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-05.jpg" alt="White residential door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-06.jpg" alt="Technician installing" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Installation</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-08.jpg" alt="Stone house door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-18.jpg" alt="Brick home door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-22.jpg" alt="Garage repair" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Repair</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-23.jpg" alt="New door install" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Installation</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-24.jpg" alt="Custom door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/port-1-1.jpg" alt="Featured job 1" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/port-2-2.jpg" alt="Featured job 2" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Spring Repair</span></div></div>
     </div>
-    <div class="portfolio-filter reveal">
-      <button class="filter-btn active" data-filter="all" data-en="All Projects" data-es="Todos">All Projects</button>
-      <button class="filter-btn" data-filter="residential" data-en="Residential" data-es="Residencial">Residential</button>
-      <button class="filter-btn" data-filter="commercial" data-en="Commercial" data-es="Comercial">Commercial</button>
-      <button class="filter-btn" data-filter="opener" data-en="Openers & Gates" data-es="Motores y Portones">Openers & Gates</button>
+  </div>
+
+  <!-- Track 2 — right to left -->
+  <div class="gallery-track-wrap">
+    <div class="gallery-track rtl">
+      <div class="gallery-card"><img src="images/portfolio-07.jpg" alt="Commercial doors" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Commercial</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-04.jpg" alt="Opener install" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Opener</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-09.jpg" alt="LiftMaster opener" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Opener</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-11.jpg" alt="Commercial sectional" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Commercial</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-20.jpg" alt="Commercial barn door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Commercial</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-25.jpg" alt="Garage door project" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-26.jpg" alt="Gate opener" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Gate Opener</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-27.jpg" alt="Door installation" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Installation</span></div></div>
+      <div class="gallery-card"><img src="images/commercial-extra-1.jpg" alt="Commercial extra" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Commercial</span></div></div>
+      <div class="gallery-card"><img src="images/commercial-extra-2.jpg" alt="Commercial extra" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Commercial</span></div></div>
+      <div class="gallery-card"><img src="images/port-3-3.jpg" alt="Featured job 3" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Opener</span></div></div>
+      <div class="gallery-card"><img src="images/port-4-4.jpg" alt="Featured job 4" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Spring Repair</span></div></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="gallery-card"><img src="images/portfolio-07.jpg" alt="Commercial doors" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Commercial</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-04.jpg" alt="Opener install" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Opener</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-09.jpg" alt="LiftMaster opener" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Opener</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-11.jpg" alt="Commercial sectional" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Commercial</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-20.jpg" alt="Commercial barn door" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Commercial</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-25.jpg" alt="Garage door project" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Residential</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-26.jpg" alt="Gate opener" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Gate Opener</span></div></div>
+      <div class="gallery-card"><img src="images/portfolio-27.jpg" alt="Door installation" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Installation</span></div></div>
+      <div class="gallery-card"><img src="images/commercial-extra-1.jpg" alt="Commercial extra" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Commercial</span></div></div>
+      <div class="gallery-card"><img src="images/commercial-extra-2.jpg" alt="Commercial extra" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Commercial</span></div></div>
+      <div class="gallery-card"><img src="images/port-3-3.jpg" alt="Featured job 3" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Opener</span></div></div>
+      <div class="gallery-card"><img src="images/port-4-4.jpg" alt="Featured job 4" loading="lazy"><div class="gallery-card-overlay"><span class="gallery-card-label">Spring Repair</span></div></div>
     </div>
-    <div class="portfolio-grid" id="portfolioGrid">
-      <div class="portfolio-item reveal" data-category="residential" onclick="openLightbox(0)">
-        <img src="images/portfolio-01.jpg" alt="Modern garage door with windows" loading="lazy">
-        <span class="portfolio-tag">Residential</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="residential" onclick="openLightbox(1)">
-        <img src="images/portfolio-02.jpg" alt="White garage door interior" loading="lazy">
-        <span class="portfolio-tag">Residential</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="residential" onclick="openLightbox(2)">
-        <img src="images/portfolio-03.jpg" alt="Beige traditional door with windows" loading="lazy">
-        <span class="portfolio-tag">Residential</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="opener" onclick="openLightbox(3)">
-        <img src="images/portfolio-04.jpg" alt="Garage door opener installation" loading="lazy">
-        <span class="portfolio-tag gate">Opener</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="residential" onclick="openLightbox(4)">
-        <img src="images/portfolio-05.jpg" alt="White door on residential home" loading="lazy">
-        <span class="portfolio-tag">Residential</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="residential" onclick="openLightbox(5)">
-        <img src="images/portfolio-06.jpg" alt="Technician installing garage door" loading="lazy">
-        <span class="portfolio-tag">Installation</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="commercial" onclick="openLightbox(6)">
-        <img src="images/portfolio-07.jpg" alt="3-bay commercial garage doors" loading="lazy">
-        <span class="portfolio-tag commercial">Commercial</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="residential" onclick="openLightbox(7)">
-        <img src="images/portfolio-08.jpg" alt="White door with windows on stone house" loading="lazy">
-        <span class="portfolio-tag">Residential</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="opener" onclick="openLightbox(8)">
-        <img src="images/portfolio-09.jpg" alt="LiftMaster opener installed" loading="lazy">
-        <span class="portfolio-tag gate">Opener</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="commercial" onclick="openLightbox(9)">
-        <img src="images/portfolio-11.jpg" alt="Dark commercial sectional door" loading="lazy">
-        <span class="portfolio-tag commercial">Commercial</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="residential" onclick="openLightbox(10)">
-        <img src="images/portfolio-18.jpg" alt="White door on brick home" loading="lazy">
-        <span class="portfolio-tag">Residential</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-      <div class="portfolio-item reveal" data-category="commercial" onclick="openLightbox(11)">
-        <img src="images/portfolio-20.jpg" alt="Commercial barn door interior" loading="lazy">
-        <span class="portfolio-tag commercial">Commercial</span>
-        <div class="portfolio-overlay"><span>🔍 View</span></div>
-      </div>
-    </div>
+  </div>
+
+  <div class="gallery-cta reveal">
+    <a href="portfolio.html" class="btn">Ver portafolio completo →</a>
   </div>
 </section>
 
