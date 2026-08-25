@@ -21,7 +21,6 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:14px 28px;display
 .nav-links a{font-size:.88rem;font-weight:500;color:var(--gray);transition:color .2s}
 .nav-links a:hover{color:var(--white)}
 .btn-nav{background:var(--orange);color:#fff;padding:9px 20px;border-radius:999px;font-size:.88rem;font-weight:700;border:none;cursor:pointer}
-@media(max-width:768px){.nav-links{display:none}}
 #hero{min-height:70vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease-in-out;background-size:cover;background-position:center}
 .hero-slide.active{opacity:1}
@@ -55,7 +54,6 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:14px 28px;display
 .check-list li::before{content:'✓';color:var(--orange);font-weight:800;flex-shrink:0;margin-top:1px}
 .two-col-img{border-radius:16px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .two-col-img img{width:100%;height:100%;object-fit:cover}
-@media(max-width:860px){.two-col{grid-template-columns:1fr}}
 #process{background:var(--dark2)}
 .process-steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;margin-top:48px}
 .step{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:32px 24px}
@@ -87,8 +85,6 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:14px 28px;display
 footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.06);padding:28px 24px;text-align:center}
 footer p{color:var(--gray);font-size:.85rem;line-height:2}
 footer a{color:var(--orange)}
-
-50%{transform:translateY(-6px)}}
 #lb{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
 #lb.open{display:flex}
 #lb img{max-width:90vw;max-height:88vh;border-radius:10px;object-fit:contain}
@@ -98,9 +94,56 @@ footer a{color:var(--orange)}
 #lb-prev{left:20px}#lb-next{right:20px}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:rgba(8,15,30,.97);flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.4rem;font-weight:700;color:var(--white);transition:color .2s}
+.mobile-menu a:hover{color:var(--orange)}
+.mobile-close{position:absolute;top:20px;right:24px;font-size:2rem;cursor:pointer;color:var(--gray);background:none;border:none;color:#fff}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links,.btn-nav{display:none}
+  .hamburger{display:flex}
+  #hero{padding-top:70px}
+  .hero-content{padding:40px 20px 40px 20px}
+  .hero-title{font-size:clamp(1.8rem,7vw,2.8rem)}
+  .hero-btns{flex-direction:column;gap:10px;align-items:flex-start}
+  .btn-primary,.btn-sec{width:100%;justify-content:center;padding:13px 20px}
+  .two-col{grid-template-columns:1fr;gap:32px}
+  .two-col-img{order:-1}
+  .section{padding:56px 20px}
+  .section-title{font-size:clamp(1.4rem,6vw,2rem)}
+  .cta-btns{flex-direction:column;align-items:center}
+  .btn-white,.btn-outline-w{width:100%;max-width:300px;justify-content:center}
+  .map-wrap iframe{height:260px}
+  .map-cta-row{flex-direction:column;align-items:flex-start}
+  .map-section-inner{padding:48px 16px 0}
+}
+@media(max-width:560px){
+  .features-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .hero-content{padding:32px 16px}
+  .section{padding:48px 16px}
+  .footer-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
+
+<div id="mobileMenu" class="mobile-menu">
+  <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
+  <a href="index.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Home</a>
+  <a href="index.html#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Services</a>
+  <a href="portfolio.html" onclick="document.getElementById('mobileMenu').classList.remove('open')">Portfolio</a>
+  <a href="index.html#areas" onclick="document.getElementById('mobileMenu').classList.remove('open')">Service Areas</a>
+  <a href="index.html#contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
+  <a href="tel:+12103287023" class="btn-primary" style="font-size:1rem">📞 210-328-7023</a>
+</div>
+
 <nav>
   <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="iRepair Garage Doors"></a>
   <ul class="nav-links">
@@ -110,6 +153,9 @@ footer a{color:var(--orange)}
     <li><a href="index.html#areas">Service Areas</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
+  <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <a href="tel:+12103287023" class="btn-nav">📞 Call Now</a>
 </nav>
 
