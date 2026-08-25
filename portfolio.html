@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio & Reviews – iRepair Garage Doors</title>
+<meta name="description" content="Real work, real reviews. See our garage door installations, repairs and gate opener projects with verified Google reviews from happy customers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#080f1e;--dark2:#0d1b2a;--dark3:#152238;
+  --orange:#f97316;--orange2:#ea6c0b;--blue:#3b82f6;
+  --white:#fff;--gray:#94a3b8;--card:#111d2e;--radius:14px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--dark2)}
+::-webkit-scrollbar-thumb{background:var(--orange);border-radius:3px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:100;
+  padding:14px 28px;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,15,30,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.nav-logo{display:flex;align-items:center}
+.nav-logo img{height:50px;width:auto;object-fit:contain;display:block}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--gray);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.btn-nav{
+  background:var(--orange);color:#fff;padding:9px 20px;
+  border-radius:999px;font-size:.88rem;font-weight:700;border:none;cursor:pointer;
+}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ── HERO ── */
+#hero{
+  min-height:52vh;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding-top:80px;text-align:center;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:url('images/portfolio-08.jpg') center/cover no-repeat;
+  opacity:.22;
+}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(8,15,30,.7),rgba(8,15,30,.85))}
+.hero-content{position:relative;z-index:2;max-width:720px;padding:0 24px}
+.page-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.3);
+  color:var(--orange);padding:6px 16px;border-radius:999px;
+  font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hero-title{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px}
+.hero-title span{color:var(--orange)}
+.hero-sub{color:var(--gray);font-size:1rem;line-height:1.7;margin-bottom:28px}
+.hero-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  padding:8px 16px;border-radius:999px;font-size:.83rem;font-weight:600;
+}
+.badge svg{width:15px;height:15px;fill:var(--orange);flex-shrink:0}
+
+/* ── SECTIONS ── */
+.section{padding:80px 24px}
+.container{max-width:1180px;margin:0 auto}
+.section-label{
+  display:inline-block;background:rgba(249,115,22,.12);
+  color:var(--orange);padding:5px 14px;border-radius:999px;
+  font-size:.75rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px;
+}
+.section-title{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;line-height:1.15;margin-bottom:10px}
+.section-sub{color:var(--gray);font-size:.97rem;line-height:1.7;max-width:560px}
+
+/* ── FEATURED SHOWCASES ── */
+#featured{background:var(--dark2)}
+.showcase-grid{display:flex;flex-direction:column;gap:80px;margin-top:56px}
+.showcase{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.showcase:nth-child(even){direction:rtl}
+.showcase:nth-child(even) > *{direction:ltr}
+.showcase-review{
+  background:var(--card);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);padding:36px;position:relative;
+}
+.showcase-review::before{
+  content:'"';position:absolute;top:-10px;left:24px;
+  font-size:6rem;line-height:1;color:var(--orange);opacity:.25;
+  font-family:Georgia,serif;
+}
+.showcase-stars{display:flex;gap:3px;margin-bottom:18px}
+.showcase-stars span{color:#f59e0b;font-size:1.3rem}
+.showcase-text{
+  font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,.9);
+  font-style:italic;margin-bottom:24px;
+}
+.showcase-reviewer{display:flex;align-items:center;gap:14px}
+.reviewer-av{
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1rem;flex-shrink:0;
+}
+.reviewer-name{font-weight:700;font-size:.97rem}
+.reviewer-meta{font-size:.78rem;color:var(--gray);margin-top:2px}
+.google-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:600;
+  margin-top:20px;
+}
+.google-chip svg{width:14px;height:14px}
+
+.showcase-img{
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  aspect-ratio:4/3;
+}
+.showcase-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.showcase-img:hover img{transform:scale(1.04)}
+.showcase-num{
+  position:absolute;top:-18px;right:24px;
+  background:var(--orange);color:#fff;
+  font-size:.75rem;font-weight:800;padding:4px 14px;border-radius:999px;
+  letter-spacing:.5px;
+}
+
+/* ── ALL REVIEWS ── */
+#all-reviews{background:var(--dark)}
+.google-cta{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  background:var(--card);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);padding:28px 32px;margin-bottom:44px;
+}
+.gcta-left h3{font-size:1.25rem;font-weight:800;margin-bottom:4px}
+.gcta-left p{color:var(--gray);font-size:.9rem}
+.gcta-stars{display:flex;gap:3px;margin-top:6px}
+.gcta-stars span{color:#f59e0b;font-size:1.1rem}
+.btn-google{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#fff;color:#1a1a2e;padding:13px 26px;
+  border-radius:999px;font-weight:700;font-size:.92rem;
+  transition:transform .15s,box-shadow .2s;flex-shrink:0;
+}
+.btn-google:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.btn-google svg{width:20px;height:20px}
+
+.reviews-masonry{
+  columns:3;column-gap:20px;
+}
+.review-brick{
+  break-inside:avoid;
+  background:var(--card);border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;padding:24px;margin-bottom:20px;
+  transition:border-color .25s,transform .25s;
+}
+.review-brick:hover{border-color:rgba(249,115,22,.3);transform:translateY(-3px)}
+.rb-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.rb-av{
+  width:42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.88rem;flex-shrink:0;
+}
+.rb-name{font-size:.92rem;font-weight:700}
+.rb-meta{font-size:.73rem;color:var(--gray);margin-top:2px}
+.rb-stars{display:flex;gap:2px;margin-bottom:10px}
+.rb-stars span{color:#f59e0b;font-size:.95rem}
+.rb-text{color:rgba(148,163,184,.9);font-size:.87rem;line-height:1.7}
+.rb-date{font-size:.72rem;color:rgba(148,163,184,.5);margin-top:12px}
+
+@media(max-width:900px){.reviews-masonry{columns:2}}
+@media(max-width:560px){.reviews-masonry{columns:1}}
+
+/* ── GALLERY ── */
+#gallery{background:var(--dark2)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:14px;margin-top:44px;
+}
+.gallery-item{
+  border-radius:12px;overflow:hidden;
+  aspect-ratio:4/3;cursor:pointer;position:relative;
+}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gallery-item:hover img{transform:scale(1.07)}
+.gallery-item-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.6),transparent 50%);
+  opacity:0;transition:opacity .3s;
+  display:flex;align-items:flex-end;padding:14px;
+}
+.gallery-item:hover .gallery-item-overlay{opacity:1}
+.gallery-item-overlay span{font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:5px}
+
+/* ── LIGHTBOX ── */
+#lb{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
+#lb.open{display:flex}
+#lb img{max-width:90vw;max-height:88vh;border-radius:10px;object-fit:contain}
+#lb-close{position:absolute;top:20px;right:24px;font-size:2.2rem;color:#fff;cursor:pointer;background:rgba(255,255,255,.1);width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+#lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:#fff;width:50px;height:50px;border-radius:50%;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+#lb-prev:hover,#lb-next:hover{background:rgba(249,115,22,.7)}
+#lb-prev{left:20px}
+#lb-next{right:20px}
+
+/* ── CTA BANNER ── */
+#cta{background:linear-gradient(135deg,var(--orange),#dc5f00);padding:60px 24px;text-align:center}
+#cta h2{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:900;margin-bottom:10px}
+#cta p{opacity:.88;margin-bottom:28px;font-size:1rem}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--orange);padding:14px 28px;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .15s}
+.btn-white:hover{transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.6);color:#fff;padding:14px 28px;border-radius:999px;font-weight:700;font-size:.95rem;transition:background .2s}
+.btn-outline:hover{background:rgba(255,255,255,.15)}
+
+/* ── FOOTER ── */
+footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.06);padding:32px 24px;text-align:center}
+footer p{color:var(--gray);font-size:.85rem}
+footer a{color:var(--orange);font-weight:600}
+
+/* ── FLOAT CALL ── */
+#float-call{
+  position:fixed;bottom:28px;right:28px;z-index:500;
+  background:var(--orange);color:#fff;border-radius:999px;padding:14px 22px;
+  font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px;
+  box-shadow:0 6px 28px rgba(249,115,22,.5);animation:bounce 2.5s infinite;
+}
+#float-call:hover{background:var(--orange2)}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-36px);transition:opacity .7s ease,transform .7s ease}
+.reveal-l.visible{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(36px);transition:opacity .7s ease,transform .7s ease}
+.reveal-r.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .showcase{grid-template-columns:1fr}
+  .showcase:nth-child(even){direction:ltr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="iRepair Garage Doors">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="tel:+12103287023" class="btn-nav">📞 Call Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="page-tag">⭐ 5.0 · 169 Reviews on Google</div>
+    <h1 class="hero-title">Our Work & <span>Customer Reviews</span></h1>
+    <p class="hero-sub">Real photos from real jobs — paired with the real reviews left by our customers. See what makes iRepair Garage Doors the top-rated choice in San Antonio.</p>
+    <div class="hero-badges">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        169 Five-Star Reviews
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        200+ Jobs Completed
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Same-Day Service
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED SHOWCASES -->
+<section id="featured" class="section">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Featured Work</span>
+      <h2 class="section-title">What Our Customers Say About Each Job</h2>
+      <p class="section-sub">These customers left a review alongside their job photo — real proof of the quality we deliver every time.</p>
+    </div>
+
+    <div class="showcase-grid">
+
+      <!-- 1: Delonna Barlongo -->
+      <div class="showcase reveal">
+        <div class="showcase-review" style="position:relative">
+          <span class="showcase-num">Job #1</span>
+          <div class="showcase-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="showcase-text">"They are great at communication. Came out the same day I reached out to them. They were very informative. They replaced my garage door panel and did an awesome job! I'm recommending them to everyone!"</p>
+          <div class="showcase-reviewer">
+            <div class="reviewer-av" style="background:#8e44ad">DB</div>
+            <div>
+              <div class="reviewer-name">Delonna Barlongo</div>
+              <div class="reviewer-meta">4 reviews · 3 photos · 7 months ago</div>
+            </div>
+          </div>
+          <div class="google-chip">
+            <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Verified Google Review
+          </div>
+        </div>
+        <div class="showcase-img">
+          <img src="images/port-1-1.jpg" alt="Garage door panel replacement – Delonna Barlongo">
+        </div>
+      </div>
+
+      <!-- 2: Steven Jurado -->
+      <div class="showcase reveal" style="transition-delay:.1s">
+        <div class="showcase-review" style="position:relative">
+          <span class="showcase-num">Job #2</span>
+          <div class="showcase-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="showcase-text">"Edgar was very Professional and great work! He installed in less than 30 minutes with no mess or any issues with the garage opener — works very well. I appreciate the install and would highly recommend for your garage door needs."</p>
+          <div class="showcase-reviewer">
+            <div class="reviewer-av" style="background:#27ae60">SJ</div>
+            <div>
+              <div class="reviewer-name">Steven Jurado</div>
+              <div class="reviewer-meta">7 reviews · 2 photos · 2 years ago</div>
+            </div>
+          </div>
+          <div class="google-chip">
+            <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Verified Google Review
+          </div>
+        </div>
+        <div class="showcase-img">
+          <img src="images/port-2-2.jpg" alt="Garage door opener installation – Steven Jurado">
+        </div>
+      </div>
+
+      <!-- 3: Jerry Solis -->
+      <div class="showcase reveal" style="transition-delay:.15s">
+        <div class="showcase-review" style="position:relative">
+          <span class="showcase-num">Job #3</span>
+          <div class="showcase-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="showcase-text">"Edgar fixed my garage door and put it back in alignment — fair price and I highly recommended using his services. My second time using this company — excellent work and great prices. He installed new system and works perfectly. Give them a call."</p>
+          <div class="showcase-reviewer">
+            <div class="reviewer-av" style="background:#16a085">JS</div>
+            <div>
+              <div class="reviewer-name">Jerry Solis</div>
+              <div class="reviewer-meta">Local Guide · 57 reviews · 2 photos · 1 year ago</div>
+            </div>
+          </div>
+          <div class="google-chip">
+            <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Verified Google Review
+          </div>
+        </div>
+        <div class="showcase-img">
+          <img src="images/port-3-3.jpg" alt="Garage door alignment and new door – Jerry Solis">
+        </div>
+      </div>
+
+      <!-- 4: Demani Age -->
+      <div class="showcase reveal" style="transition-delay:.2s">
+        <div class="showcase-review" style="position:relative">
+          <span class="showcase-num">Job #4</span>
+          <div class="showcase-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="showcase-text">"Very detailed work, explained everything that was included with the garage package. Even did a repair on the tracks of my garage door. Also threw in a free remote for the garage door. 10/10 service. If you are looking for installing go with him."</p>
+          <div class="showcase-reviewer">
+            <div class="reviewer-av" style="background:#c0392b">DA</div>
+            <div>
+              <div class="reviewer-name">Demani Age</div>
+              <div class="reviewer-meta">Local Guide · 47 reviews · 15 photos · 2 years ago</div>
+            </div>
+          </div>
+          <div class="google-chip">
+            <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Verified Google Review
+          </div>
+        </div>
+        <div class="showcase-img">
+          <img src="images/port-4-4.jpg" alt="Garage door opener and tracks – Demani Age">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ALL REVIEWS -->
+<section id="all-reviews" class="section">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">All Google Reviews</span>
+      <h2 class="section-title">169 Reasons to Choose iRepair</h2>
+      <p class="section-sub">Every review below is 100% real and verified on Google. We let our customers do the talking.</p>
+    </div>
+
+    <div class="google-cta reveal" style="margin-top:36px">
+      <div class="gcta-left">
+        <h3>⭐ 5.0 out of 5 — 169 Reviews</h3>
+        <div class="gcta-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p>Verified on Google Maps · San Antonio, TX</p>
+      </div>
+      <a href="https://maps.app.goo.gl/MhemUgTdHSqUedU77" target="_blank" rel="noopener" class="btn-google">
+        <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        View All 169 Reviews on Google
+      </a>
+    </div>
+
+    <div class="reviews-masonry">
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#e74c3c">MJ</div><div><div class="rb-name">Minouche Jean</div><div class="rb-meta">Local Guide · 15 reviews · 2 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Mr. Edgar showed up on time & was very professional! He was very knowledgeable & patient with informing me on the service that I requested. Thank you so much for being very responsive prior to my scheduled appointment. I highly recommend booking garage service."</p><div class="rb-date">3 months ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#2980b9">KM</div><div><div class="rb-name">Karen Martinez</div><div class="rb-meta">8 reviews · 1 photo</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Great service. They were able to come the same day I called and fix my broken spring. Work was done quick and cleanly. Would recommend and use again."</p><div class="rb-date">2 months ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#f39c12">AA</div><div><div class="rb-name">Alfonso Arreola</div><div class="rb-meta">3 reviews · 2 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Wow!!! For the first time ever I'm actually using a feature I always wanted to use but never figured it out. But today Edgar from iRepair Garage Doors not only fixed my sensors for my garage door but now my Lexus SUV sensor touch button works perfectly!"</p><div class="rb-date">1 year ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#6c3483">MB</div><div><div class="rb-name">Matt Bus</div><div class="rb-meta">4 reviews · 2 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Edgar was very detailed and polite. Highly recommend his service and love supporting local businesses."</p><div class="rb-date">5 months ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#e67e22">KW</div><div><div class="rb-name">Kevin Welch</div><div class="rb-meta">10 reviews</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Everyone we were in contact with were very professional, services were quick and the payment methods were very simple. Give Edgar a call. He even answered my questions after hours through text. Good people!"</p><div class="rb-date">8 months ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#1a6ea8">SE</div><div><div class="rb-name">Steven J Espinoza</div><div class="rb-meta">13 reviews</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"I contacted Edgar with iRepair Garage Doors and he answered right away, was upfront with the process and fees. I let him know I'm very busy and need an early appointment — he accommodated me perfectly and delivered outstanding service."</p><div class="rb-date">9 months ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#1abc9c">PV</div><div><div class="rb-name">Paola Vazquez</div><div class="rb-meta">3 reviews</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"I had such a great experience! From start to finish, his customer service was absolutely amazing. He was friendly, professional, and very patient in explaining everything about my new garage door opener. He made sure I fully understood how everything worked."</p><div class="rb-date">1 year ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#2980b9">MS</div><div><div class="rb-name">Mark Speer</div><div class="rb-meta">11 reviews</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"iRepair Garage Doors is amazing! They are quick, professional, and care about the customer. I highly recommend them for their customer service! Keep up the great work!"</p><div class="rb-date">1 year ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#d35400">AR</div><div><div class="rb-name">Amanda Rodriguez</div><div class="rb-meta">Local Guide · 15 reviews · 4 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Edgar was great! He came to our house in the evening on a Sunday! Looked at our garage door, explained what the issue was and what he recommended for future repairs. He worked on our door quickly and efficiently. Very professional and accommodating. Thank you so much!!"</p><div class="rb-date">2 years ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#27ae60">mB</div><div><div class="rb-name">Mike Barron</div><div class="rb-meta">4 reviews</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"I had a great experience with Edgar! He responded quickly, showed up on time, and got the job done fast. The technician was very knowledgeable and clearly knew what he was doing. Everything was explained to me clearly."</p><div class="rb-date">1 year ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#9b59b6">JV</div><div><div class="rb-name">Jerica Vasquez</div><div class="rb-meta">5 reviews · 1 photo</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Edgar came out so fast and fixed my crooked/broken garage door even faster than expected!! He did amazing! Thank you so much again for fixing it Edgar!"</p><div class="rb-date">9 months ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#3498db">JJ</div><div><div class="rb-name">Justin Judkins</div><div class="rb-meta">6 reviews</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Edgar did an amazing job throughout the entire process. He was very quick to reply and open in his communication. He gave us a small time window to make planning our day easy, and he showed up exactly when he said he would."</p><div class="rb-date">1 year ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#e74c3c">HM</div><div><div class="rb-name">H. Macapagal</div><div class="rb-meta">6 reviews · 4 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Edgar did an amazing job fixing my garage, he was very professional, he was on time, and he is very reliable. Highly recommended!"</p><div class="rb-date">4 years ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#2ecc71">JG</div><div><div class="rb-name">Jose Gutierrez</div><div class="rb-meta">3 reviews · 1 photo</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Awesome job, he came out super fast and took care of my garage. Great price as well. I would highly recommend him!"</p><div class="rb-date">11 months ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#16a085">EV</div><div><div class="rb-name">Ellen V</div><div class="rb-meta">Local Guide · 10 reviews · 6 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Edgar did an amazing job installing our garage door opener. He's professional, friendly and polite. Does his job quickly and efficiently. Absolutely recommendable!"</p><div class="rb-date">1 year ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#34495e">DL</div><div><div class="rb-name">Delma Lee</div><div class="rb-meta">7 reviews</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Edgar was great to work with and very professional. Always answered my texts and phone calls and answered any concerns or questions I asked. They got the job done well and within a few hours. I would highly recommend iRepair for your garage needs."</p><div class="rb-date">2 years ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#8e44ad">PH</div><div><div class="rb-name">Perla Hernandez</div><div class="rb-meta">10 reviews · 2 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Edgar did a phenomenal job! Very patient & in detail with his service. Went above and beyond with making sure the garage door opener worked thoroughly with the App & accessories the opener came with."</p><div class="rb-date">1 year ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#e67e22">RT</div><div><div class="rb-name">Ray Thompson</div><div class="rb-meta">Local Guide · 14 reviews · 6 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Edgar is very professional and efficient. Great communication throughout install. I highly recommend iRepair Garage Doors!"</p><div class="rb-date">1 year ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#c0392b">NN</div><div><div class="rb-name">Nicole R Nava</div><div class="rb-meta">9 reviews · 4 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"10/10 Recommend! Just moved into our new home and wanted an automatic garage set up done quickly and correct. Edgar was able to schedule an appointment for less than 24 hours after contacting him and showed up on time and completed the job perfectly."</p><div class="rb-date">3 years ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#7f8c8d">MC</div><div><div class="rb-name">Mary Clack</div><div class="rb-meta">13 reviews · 5 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"We had an excellent experience with Edgar / iRepair Garage Doors. He was prompt and gave us a fair price. He made sure we viewed the completed repairs and understood how to avoid a costly future mistake."</p><div class="rb-date">1 year ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#2c3e50">MS</div><div><div class="rb-name">Michael Snellgrove</div><div class="rb-meta">3 reviews</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Edgar from iRepair Garage Doors responded immediately to our request for help, came early the next morning to quickly resolve the issue. He worked quickly and efficiently to allow us to get on with our day with a very fair charge."</p><div class="rb-date">2 years ago</div></div>
+
+      <div class="review-brick reveal"><div class="rb-header"><div class="rb-av" style="background:#c0392b">DA2</div><div><div class="rb-name">Demani Age</div><div class="rb-meta">Local Guide · 47 reviews · 15 photos</div></div></div><div class="rb-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rb-text">"Very detailed work, explained everything that was included with the garage package. Even did a repair on the tracks of my garage door. Also threw in a free remote for the garage door. 10/10 service."</p><div class="rb-date">2 years ago</div></div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px" class="reveal">
+      <a href="https://maps.app.goo.gl/MhemUgTdHSqUedU77" target="_blank" rel="noopener" class="btn-google" style="font-size:1rem;padding:16px 36px">
+        <svg viewBox="0 0 24 24" style="width:22px;height:22px"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Ver Todas las 169 Reseñas en Google
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Photo Gallery</span>
+      <h2 class="section-title">All Our Work in Photos</h2>
+      <p class="section-sub">Every photo is a real job completed by Edgar and the iRepair team — residential, commercial, openers and more.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item reveal" onclick="openLb(0)"><img src="images/portfolio-01.jpg" alt="Modern garage door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(1)"><img src="images/portfolio-02.jpg" alt="White door interior" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(2)"><img src="images/portfolio-03.jpg" alt="Beige traditional door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(3)"><img src="images/portfolio-04.jpg" alt="Garage opener install" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(4)"><img src="images/portfolio-05.jpg" alt="White residential door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(5)"><img src="images/portfolio-06.jpg" alt="Technician installing door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(6)"><img src="images/portfolio-07.jpg" alt="3-bay commercial doors" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(7)"><img src="images/portfolio-08.jpg" alt="White door with windows" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(8)"><img src="images/portfolio-09.jpg" alt="Opener installation" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(9)"><img src="images/portfolio-10.jpg" alt="Garage door install" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(10)"><img src="images/portfolio-11.jpg" alt="Commercial door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(11)"><img src="images/portfolio-12.jpg" alt="Commercial warehouse door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(12)"><img src="images/portfolio-13.jpg" alt="Residential door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(13)"><img src="images/portfolio-15.jpg" alt="Garage door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(14)"><img src="images/portfolio-16.jpg" alt="Door installation" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(15)"><img src="images/portfolio-17.jpg" alt="Residential install" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(16)"><img src="images/portfolio-18.jpg" alt="White door on brick home" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(17)"><img src="images/portfolio-19.jpg" alt="Garage door install" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(18)"><img src="images/portfolio-20.jpg" alt="Commercial barn door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(19)"><img src="images/portfolio-22.jpg" alt="Residential door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(20)"><img src="images/portfolio-23.jpg" alt="Door installation" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(21)"><img src="images/portfolio-24.jpg" alt="Garage install" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(22)"><img src="images/portfolio-25.jpg" alt="Door panel" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(23)"><img src="images/portfolio-26.jpg" alt="Warehouse door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(24)"><img src="images/portfolio-27.jpg" alt="3-bay storage doors" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(25)"><img src="images/commercial-extra-1.jpg" alt="Commercial interior door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(26)"><img src="images/commercial-extra-2.jpg" alt="Heavy commercial door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(27)"><img src="images/port-1-1.jpg" alt="Panel replacement" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(28)"><img src="images/port-2-2.jpg" alt="Opener install" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(29)"><img src="images/port-3-3.jpg" alt="New white door" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+      <div class="gallery-item reveal" onclick="openLb(30)"><img src="images/port-4-4.jpg" alt="Garage motor" loading="lazy"><div class="gallery-item-overlay"><span>🔍 View</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <span id="lb-close" onclick="closeLb()">✕</span>
+  <button id="lb-prev" onclick="changeLb(-1)">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button id="lb-next" onclick="changeLb(1)">›</button>
+</div>
+
+<!-- CTA BANNER -->
+<div id="cta">
+  <div class="container">
+    <h2>Ready to transform your garage door?</h2>
+    <p>Call Edgar today — same-day service available, free estimates, honest pricing.</p>
+    <div class="cta-btns">
+      <a href="tel:+12103287023" class="btn-white">📞 Call Now – Free Estimate</a>
+      <a href="index.html#contact" class="btn-outline">✉️ Send a Message</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 iRepair Garage Doors · <a href="index.html">Back to Home</a> · <a href="https://maps.app.goo.gl/MhemUgTdHSqUedU77" target="_blank">⭐ 5.0 · 169 Reviews on Google</a></p>
+</footer>
+
+<!-- FLOAT CALL -->
+<a href="tel:+12103287023" id="float-call">📞 Call Now</a>
+
+<script>
+// Reveal on scroll
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => ro.observe(el));
+
+// Lightbox
+const imgs = [
+  'images/portfolio-01.jpg','images/portfolio-02.jpg','images/portfolio-03.jpg',
+  'images/portfolio-04.jpg','images/portfolio-05.jpg','images/portfolio-06.jpg',
+  'images/portfolio-07.jpg','images/portfolio-08.jpg','images/portfolio-09.jpg',
+  'images/portfolio-10.jpg','images/portfolio-11.jpg','images/portfolio-12.jpg',
+  'images/portfolio-13.jpg','images/portfolio-15.jpg','images/portfolio-16.jpg',
+  'images/portfolio-17.jpg','images/portfolio-18.jpg','images/portfolio-19.jpg',
+  'images/portfolio-20.jpg','images/portfolio-22.jpg','images/portfolio-23.jpg',
+  'images/portfolio-24.jpg','images/portfolio-25.jpg','images/portfolio-26.jpg',
+  'images/portfolio-27.jpg','images/commercial-extra-1.jpg','images/commercial-extra-2.jpg',
+  'images/port-1-1.jpg','images/port-2-2.jpg','images/port-3-3.jpg','images/port-4-4.jpg'
+];
+let cur = 0;
+function openLb(i) {
+  cur = i;
+  document.getElementById('lb-img').src = imgs[i];
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() {
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function changeLb(d) {
+  cur = (cur + d + imgs.length) % imgs.length;
+  document.getElementById('lb-img').src = imgs[cur];
+}
+document.getElementById('lb').addEventListener('click', e => { if (e.target === e.currentTarget) closeLb(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') changeLb(-1);
+  if (e.key === 'ArrowRight') changeLb(1);
+});
+</script>
+</body>
+</html>
