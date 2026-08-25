@@ -92,8 +92,8 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:14px 28px;display
 footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.06);padding:28px 24px;text-align:center}
 footer p{color:var(--gray);font-size:.85rem;line-height:2}
 footer a{color:var(--orange)}
-#float-call{position:fixed;bottom:28px;right:28px;z-index:500;background:var(--orange);color:#fff;border-radius:999px;padding:14px 22px;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px;box-shadow:0 6px 28px rgba(249,115,22,.5);animation:bounce 2.5s infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+50%{transform:translateY(-6px)}}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
 </style>
@@ -259,12 +259,13 @@ footer a{color:var(--orange)}
   <p><a href="index.html"><img src="images/logo.png" alt="iRepair Garage Doors" style="height:36px;display:inline-block;vertical-align:middle;margin-bottom:8px"></a><br>
   © 2024 iRepair Garage Doors · San Antonio, TX · <a href="index.html">Home</a> · <a href="portfolio.html">Portfolio</a> · <a href="https://maps.app.goo.gl/MhemUgTdHSqUedU77" target="_blank">⭐ 169 Google Reviews</a></p>
 </footer>
-<a href="tel:+12103287023" id="float-call">📞 Call Now</a>
+
 <script>
 const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 (function(){const slides=document.querySelectorAll('.hero-slide');let c=0;setInterval(()=>{slides[c].classList.remove('active');c=(c+1)%slides.length;slides[c].classList.add('active')},4000)})();
 function toggleFaq(el){el.parentElement.classList.toggle('open')}
 </script>
+<script src="chatbot.js"></script>
 </body>
 </html>

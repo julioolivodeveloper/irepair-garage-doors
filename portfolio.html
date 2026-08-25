@@ -227,14 +227,9 @@ footer p{color:var(--gray);font-size:.85rem}
 footer a{color:var(--orange);font-weight:600}
 
 /* ── FLOAT CALL ── */
-#float-call{
-  position:fixed;bottom:28px;right:28px;z-index:500;
-  background:var(--orange);color:#fff;border-radius:999px;padding:14px 22px;
-  font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px;
-  box-shadow:0 6px 28px rgba(249,115,22,.5);animation:bounce 2.5s infinite;
-}
-#float-call:hover{background:var(--orange2)}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+
+50%{transform:translateY(-6px)}}
 
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
@@ -555,7 +550,7 @@ footer a{color:var(--orange);font-weight:600}
 </footer>
 
 <!-- FLOAT CALL -->
-<a href="tel:+12103287023" id="float-call">📞 Call Now</a>
+
 
 <script>
 // Reveal on scroll
@@ -599,5 +594,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') changeLb(1);
 });
 </script>
+<script src="chatbot.js"></script>
 </body>
 </html>

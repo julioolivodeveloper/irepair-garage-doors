@@ -98,8 +98,8 @@ footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.06);paddin
 footer p{color:var(--gray);font-size:.85rem;line-height:2}
 footer a{color:var(--orange)}
 
-#float-call{position:fixed;bottom:28px;right:28px;z-index:500;background:var(--orange);color:#fff;border-radius:999px;padding:14px 22px;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px;box-shadow:0 6px 28px rgba(249,115,22,.5);animation:bounce 2.5s infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+50%{transform:translateY(-6px)}}
 
 #lb{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
 #lb.open{display:flex}
@@ -248,7 +248,7 @@ footer a{color:var(--orange)}
   © 2024 iRepair Garage Doors · San Antonio, TX · <a href="index.html">Home</a> · <a href="portfolio.html">Portfolio</a> · <a href="https://maps.app.goo.gl/MhemUgTdHSqUedU77" target="_blank">⭐ 169 Google Reviews</a></p>
 </footer>
 
-<a href="tel:+12103287023" id="float-call">📞 Call Now</a>
+
 
 <div id="lb">
   <span id="lb-close" onclick="closeLb()">✕</span>
@@ -270,5 +270,6 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 (function(){const slides=document.querySelectorAll('.hero-slide');let c=0;setInterval(()=>{slides[c].classList.remove('active');c=(c+1)%slides.length;slides[c].classList.add('active')},4000)})();
 function toggleFaq(el){el.parentElement.classList.toggle('open')}
 </script>
+<script src="chatbot.js"></script>
 </body>
 </html>
