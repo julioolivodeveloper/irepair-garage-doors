@@ -2,7 +2,7 @@
   /* ── STYLES ── */
   const css = `
   #cb-btn {
-    position:fixed;bottom:28px;right:28px;z-index:1000;
+    position:fixed;bottom:28px;right:28px;z-index:9999;
     width:60px;height:60px;border-radius:50%;
     background:linear-gradient(135deg,#06b6d4,#0891b2);
     border:none;cursor:pointer;
@@ -31,8 +31,8 @@
   @keyframes cb-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
 
   #cb-panel {
-    position:fixed;bottom:102px;right:28px;z-index:999;
-    width:360px;max-height:580px;
+    position:fixed;bottom:102px;right:28px;z-index:9998;
+    width:360px;height:520px;max-height:calc(100vh - 140px);
     background:#0d1b2a;border:1px solid rgba(255,255,255,.1);
     border-radius:20px;display:flex;flex-direction:column;
     box-shadow:0 24px 64px rgba(0,0,0,.6);
@@ -59,7 +59,7 @@
 
   #cb-messages{
     flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;
-    scroll-behavior:smooth;
+    scroll-behavior:smooth;min-height:0;
   }
   #cb-messages::-webkit-scrollbar{width:4px}
   #cb-messages::-webkit-scrollbar-thumb{background:rgba(6,182,212,.4);border-radius:2px}
@@ -134,7 +134,7 @@
   #cb-send svg{width:17px;height:17px;fill:#fff}
 
   @media(max-width:420px){
-    #cb-panel{width:calc(100vw - 24px);right:12px;bottom:96px}
+    #cb-panel{width:calc(100vw - 24px);right:12px;bottom:96px;height:480px;max-height:calc(100vh - 130px)}
   }
   `;
   const styleEl = document.createElement('style');
