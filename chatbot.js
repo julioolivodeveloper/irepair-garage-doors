@@ -147,72 +147,72 @@
   const GOOGLE = 'https://maps.app.goo.gl/MhemUgTdHSqUedU77';
 
   const contactBtns = [
-    { label: `📞 Llamar: ${PHONE_DISPLAY}`, href: `tel:+1${PHONE}`, cls: 'primary' },
+    { label: `📞 Call: ${PHONE_DISPLAY}`, href: `tel:+1${PHONE}`, cls: 'primary' },
     { label: '💬 WhatsApp', href: `https://wa.me/1${PHONE}`, cls: '' },
-    { label: '✉️ Enviar mensaje', href: 'index.html#contact', cls: '' },
+    { label: '✉️ Send a message', href: 'index.html#contact', cls: '' },
   ];
 
   const faqs = [
     {
-      q: '🗓️ ¿Servicio el mismo día?',
-      a: '¡Sí! Ofrecemos servicio el mismo día en la mayoría de los casos. Llama a Edgar y agendamos para hoy.',
+      q: '🗓️ Same-day service?',
+      a: 'Yes! We offer same-day service in most cases. Call iRepair and we\'ll schedule for today.',
       btns: contactBtns,
     },
     {
-      q: '📍 ¿Dónde operan?',
-      a: 'Servimos toda el área de San Antonio, TX — incluyendo Helotes, Leon Valley, Converse, Universal City, Live Oak, Schertz, Boerne, Bulverde, Garden Ridge, Cibolo, New Braunfels y más.',
-      btns: [{ label: '📍 Ver áreas de servicio', href: 'index.html#areas', cls: '' }, ...contactBtns.slice(0,1)],
+      q: '📍 Where do you serve?',
+      a: 'We serve the entire San Antonio, TX area — including Helotes, Leon Valley, Converse, Universal City, Live Oak, Schertz, Boerne, Bulverde, Garden Ridge, Cibolo, New Braunfels and more.',
+      btns: [{ label: '📍 View service areas', href: 'index.html#contact', cls: '' }, ...contactBtns.slice(0,1)],
     },
     {
-      q: '💰 ¿Cuánto cuesta?',
-      a: 'El precio depende del servicio. Ofrecemos estimados GRATIS sin compromiso. Llama a Edgar y te da un precio claro antes de comenzar — sin costos ocultos.',
+      q: '💰 How much does it cost?',
+      a: 'Pricing depends on the service. Call iRepair and we\'ll give you a clear quote before any work starts — no hidden fees.',
       btns: contactBtns,
     },
     {
-      q: '🔧 ¿Qué servicios ofrecen?',
-      a: '✅ Puertas de garage residenciales\n✅ Puertas comerciales\n✅ Gate openers (abre-portones)\n✅ Reparación de resortes\n✅ Instalación de motores\n✅ Reparación y mantenimiento general',
-      btns: [{ label: '🔍 Ver todos los servicios', href: 'index.html#services', cls: '' }, ...contactBtns.slice(0,1)],
+      q: '🔧 What services do you offer?',
+      a: '✅ Residential garage doors\n✅ Commercial doors\n✅ Gate openers\n✅ Spring repair & replacement\n✅ Opener installation\n✅ General repair & maintenance',
+      btns: [{ label: '🔍 View all services', href: 'index.html#services', cls: '' }, ...contactBtns.slice(0,1)],
     },
     {
-      q: '⭐ ¿Tienen reseñas?',
-      a: '¡Tenemos 169 reseñas de 5 estrellas en Google! Clientes como Delonna, Steven, Jerry y Demani comparten su experiencia. Ve las reseñas reales en Google Maps.',
-      btns: [{ label: '⭐ Ver reseñas en Google', href: GOOGLE, cls: '' }, { label: '🖼️ Ver portafolio', href: 'portfolio.html', cls: '' }],
+      q: '⭐ Do you have reviews?',
+      a: 'We have 169 five-star reviews on Google! Customers like Delonna, Steven, Jerry and Demani share their experience. Check our real reviews on Google Maps.',
+      btns: [{ label: '⭐ View Google Reviews', href: GOOGLE, cls: '' }, { label: '🖼️ View Portfolio', href: 'portfolio.html', cls: '' }],
     },
     {
-      q: '🏢 ¿Hacen trabajo comercial?',
-      a: '¡Sí! Instalamos puertas comerciales seccionales, enrollables y de alta resistencia para bodegas, negocios y propiedades industriales en San Antonio.',
-      btns: [{ label: '🏢 Ver servicios comerciales', href: 'commercial.html', cls: '' }, ...contactBtns.slice(0,1)],
+      q: '🏢 Do you do commercial work?',
+      a: 'Yes! We install sectional, roll-up, and heavy-duty commercial doors for warehouses, businesses, and industrial properties in San Antonio.',
+      btns: [{ label: '🏢 Commercial Services', href: 'commercial.html', cls: '' }, ...contactBtns.slice(0,1)],
     },
     {
-      q: '⚙️ ¿Qué marcas instalan?',
-      a: 'Somos especialistas en LiftMaster y Chamberlain — las marcas más confiables del mercado. También trabajamos con Linear, DoorKing y otras marcas de calidad.',
+      q: '⚙️ What brands do you install?',
+      a: 'We specialize in LiftMaster and Chamberlain — the most reliable brands on the market. We also work with Linear, DoorKing, and other quality brands.',
       btns: contactBtns.slice(0,1),
     },
     {
-      q: '🕐 ¿Cuánto tiempo tarda?',
-      a: 'La mayoría de las instalaciones toman 1–3 horas. El reemplazo de resortes generalmente 45 minutos. Los openers en menos de una hora. Edgar no se va hasta que todo funciona perfectamente.',
+      q: '🕐 How long does it take?',
+      a: 'Most installations take 1–3 hours. Spring replacements typically take 45 minutes. Openers in under an hour. We don\'t leave until everything works perfectly.',
       btns: contactBtns,
     },
   ];
 
-  const BOT_WELCOME = '¡Hola! 👋 Soy el asistente de **iRepair Garage Doors**. Puedo responder tus preguntas o conectarte directamente con Edgar.\n\n¿En qué te puedo ayudar hoy?';
+  const BOT_WELCOME = 'Hi! 👋 I\'m the **iRepair Garage Doors** assistant. I can answer your questions or connect you directly with our team.\n\nHow can I help you today?';
 
   /* ── KEYWORD MAP ── */
   const keywords = [
-    { keys: ['precio','costo','cobran','cuanto','cuánto','quote','estimate'], idx: 2 },
-    { keys: ['servicio','servicios','hacen','ofrecen','service'], idx: 3 },
-    { keys: ['area','áreas','donde','dónde','ciudad','location','san antonio'], idx: 1 },
-    { keys: ['reseña','resena','review','estrella','rating','google'], idx: 4 },
-    { keys: ['comercial','commercial','bodega','warehouse','negocio'], idx: 5 },
-    { keys: ['marca','brand','liftmaster','chamberlain'], idx: 6 },
-    { keys: ['tiempo','cuanto','tarda','demora','how long','rapido'], idx: 7 },
-    { keys: ['mismo dia','hoy','urgente','emergency','rapido'], idx: 0 },
-    { keys: ['hola','hi','hello','buenos','buenas','hey'], idx: -1 },
+    { keys: ['price','cost','how much','quote','estimate','pricing'], idx: 2 },
+    { keys: ['service','services','offer','do you','what do'], idx: 3 },
+    { keys: ['area','where','city','location','san antonio','cover'], idx: 1 },
+    { keys: ['review','reviews','star','rating','google'], idx: 4 },
+    { keys: ['commercial','warehouse','business','industrial'], idx: 5 },
+    { keys: ['brand','liftmaster','chamberlain','linear'], idx: 6 },
+    { keys: ['time','long','take','how long','fast','quick'], idx: 7 },
+    { keys: ['same day','today','urgent','emergency','now','asap'], idx: 0 },
+    { keys: ['hi','hello','hey','good','morning','afternoon'], idx: -1 },
   ];
 
   /* ── BUILD DOM ── */
   document.body.insertAdjacentHTML('beforeend', `
-    <button id="cb-btn" aria-label="Abrir chat">
+    <button id="cb-btn" aria-label="Open chat">
       <span id="cb-badge">1</span>
       <svg class="cb-icon-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
       <svg class="cb-icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
@@ -225,7 +225,7 @@
         </div>
         <div class="cb-hinfo">
           <h4>iRepair Garage Doors</h4>
-          <p><span class="cb-dot"></span> Disponible ahora · 210-328-7023</p>
+          <p><span class="cb-dot"></span> Available now · 210-328-7023</p>
         </div>
       </div>
 
@@ -236,8 +236,8 @@
       </div>
 
       <div id="cb-input-row">
-        <input id="cb-input" type="text" placeholder="Escribe tu pregunta..." autocomplete="off" maxlength="200">
-        <button id="cb-send" aria-label="Enviar">
+        <input id="cb-input" type="text" placeholder="Type your question..." autocomplete="off" maxlength="200">
+        <button id="cb-send" aria-label="Send">
           <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         </button>
       </div>
@@ -290,7 +290,7 @@
     setTimeout(() => {
       removeTyping();
       if (faqIdx === -1) {
-        addMsg('bot', '¡Hola! 👋 ¿Cómo te puedo ayudar hoy? Elige una pregunta abajo o escríbeme directamente.', contactBtns);
+        addMsg('bot', 'Hi! 👋 How can I help you today? Choose a question below or type your message directly.', contactBtns);
       } else {
         const f = faqs[faqIdx];
         addMsg('bot', renderText(f.a), f.btns);
@@ -313,7 +313,7 @@
       showTyping();
       setTimeout(() => {
         removeTyping();
-        addMsg('bot', 'Entiendo tu pregunta 😊 Para darte la mejor respuesta, Edgar puede ayudarte directamente:', contactBtns);
+        addMsg('bot', 'Got it! 😊 For the best answer, our team can help you directly:', contactBtns);
       }, 900);
     } else {
       botReply(match);
