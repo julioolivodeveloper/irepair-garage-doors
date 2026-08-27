@@ -16,6 +16,5 @@
     { "source": "/opener-installation", "destination": "/opener-installation.html", "permanent": true },
     { "source": "/repair-maintenance", "destination": "/repair-maintenance.html", "permanent": true }
   ],
-  "cleanUrls": true,
   "trailingSlash": false
 }
