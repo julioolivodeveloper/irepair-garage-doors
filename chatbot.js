@@ -343,7 +343,7 @@
   input.addEventListener('keydown', e => { if (e.key === 'Enter') handleUserInput(input.value); });
 
   document.addEventListener('click', e => {
-    if (panel.classList.contains('open') && !panel.contains(e.target) && e.target !== btn) {
+    if (panel.classList.contains('open') && !panel.contains(e.target) && !btn.contains(e.target)) {
       panel.classList.remove('open');
       btn.classList.remove('open');
     }
