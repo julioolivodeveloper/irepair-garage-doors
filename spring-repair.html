@@ -246,9 +246,7 @@ footer a{color:#0891b2}
 </nav>
 
 <section id="hero">
-  <div class="hero-slide active" style="background-image:url('images/portfolio-06.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/portfolio-10.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/portfolio-19.jpg')"></div>
+  <div class="hero-slide active" style="background-image:url('images/spring-repair-hero.jpg')"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="page-tag">⚙️ Emergency Service</div>
@@ -368,7 +366,6 @@ footer a{color:#0891b2}
 <script>
 const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-(function(){const slides=document.querySelectorAll('.hero-slide');let c=0;setInterval(()=>{slides[c].classList.remove('active');c=(c+1)%slides.length;slides[c].classList.add('active')},4000)})();
 function toggleFaq(el){el.parentElement.classList.toggle('open')}
 </script>
 <script src="chatbot.js"></script>
