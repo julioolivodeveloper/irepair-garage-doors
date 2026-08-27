@@ -1,20 +1,13 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/services", "destination": "/#services", "permanent": true },
     { "source": "/contact", "destination": "/#contact", "permanent": true },
     { "source": "/about", "destination": "/", "permanent": true },
     { "source": "/about-us", "destination": "/", "permanent": true },
-    { "source": "/gallery", "destination": "/portfolio.html", "permanent": true },
-    { "source": "/portfolio", "destination": "/portfolio.html", "permanent": true },
-    { "source": "/reviews", "destination": "/portfolio.html", "permanent": true },
-    { "source": "/blog", "destination": "/blog.html", "permanent": true },
-    { "source": "/residential", "destination": "/residential.html", "permanent": true },
-    { "source": "/commercial", "destination": "/commercial.html", "permanent": true },
-    { "source": "/gate-openers", "destination": "/gate-openers.html", "permanent": true },
-    { "source": "/spring-repair", "destination": "/spring-repair.html", "permanent": true },
-    { "source": "/opener-installation", "destination": "/opener-installation.html", "permanent": true },
-    { "source": "/repair-maintenance", "destination": "/repair-maintenance.html", "permanent": true }
-  ],
-  "trailingSlash": false
+    { "source": "/gallery", "destination": "/portfolio", "permanent": true },
+    { "source": "/reviews", "destination": "/portfolio", "permanent": true }
+  ]
 }
