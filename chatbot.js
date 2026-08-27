@@ -328,7 +328,7 @@
     if (isOpen && msgs.children.length === 0) {
       setTimeout(() => addMsg('bot', renderText(BOT_WELCOME), contactBtns), 400);
     }
-    if (isOpen) input.focus();
+    if (isOpen && window.innerWidth > 640) input.focus();
   });
 
   document.querySelectorAll('.cb-faq-btn').forEach(b => {
