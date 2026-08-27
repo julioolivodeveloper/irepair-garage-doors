@@ -255,10 +255,7 @@ footer a{color:#0891b2}
 </nav>
 
 <section id="hero">
-  <div class="hero-slide active" style="background-image:url('images/portfolio-04.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/portfolio-09.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/port-2-2.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('images/port-4-4.jpg')"></div>
+  <div class="hero-slide active" style="background-image:url('images/gate-openers-hero.jpg')"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="page-tag">🚧 Gate & Opener Service</div>
@@ -380,7 +377,6 @@ document.getElementById('lb').addEventListener('click',e=>{if(e.target===e.curre
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')changeLb(-1);if(e.key==='ArrowRight')changeLb(1)});
 const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-(function(){const slides=document.querySelectorAll('.hero-slide');let c=0;setInterval(()=>{slides[c].classList.remove('active');c=(c+1)%slides.length;slides[c].classList.add('active')},4000)})();
 function toggleFaq(el){el.parentElement.classList.toggle('open')}
 </script>
 <script src="chatbot.js"></script>
