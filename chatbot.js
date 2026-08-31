@@ -133,8 +133,11 @@
   #cb-send:hover{background:#0891b2;transform:scale(1.08)}
   #cb-send svg{width:17px;height:17px;fill:#fff}
 
-  @media(max-width:420px){
-    #cb-panel{width:calc(100vw - 24px);right:12px;bottom:96px;height:480px;max-height:calc(100vh - 130px)}
+  @media(max-width:520px){
+    #cb-panel{width:calc(100vw - 24px);right:12px;bottom:96px;height:500px;max-height:calc(100vh - 120px)}
+    #cb-faqs{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;padding-bottom:10px;scrollbar-width:none}
+    #cb-faqs::-webkit-scrollbar{display:none}
+    .cb-faq-btn{flex-shrink:0;font-size:.72rem;padding:5px 10px}
   }
   `;
   const styleEl = document.createElement('style');
