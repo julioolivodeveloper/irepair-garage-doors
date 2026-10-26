@@ -2,12 +2,63 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/services", "destination": "/#services", "permanent": true },
-    { "source": "/contact", "destination": "/#contact", "permanent": true },
-    { "source": "/about", "destination": "/", "permanent": true },
-    { "source": "/about-us", "destination": "/", "permanent": true },
-    { "source": "/gallery", "destination": "/portfolio", "permanent": true },
-    { "source": "/reviews", "destination": "/portfolio", "permanent": true }
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/#services",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gallery",
+      "destination": "/portfolio",
+      "permanent": true
+    },
+    {
+      "source": "/reviews",
+      "destination": "/portfolio",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    }
   ]
 }
